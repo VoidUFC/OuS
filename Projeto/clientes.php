@@ -51,10 +51,11 @@
 	
 	$bairro = addslashes($_POST['bairro']);
     
-    // Validar Nome
-    if (empty($name)) {
+    // Validar campos
+    if (empty($name) || (empty($contato_1)) || (empty($contato_2)) || (empty($estado)) || (empty($cidade)) || (empty($endereco))|| (empty($n_casa)) || (empty($bairro)) ) {
     $error = true;
-    $nameError = "* Nome do cliente é obrigatório";
+    $errTyp = "alert-danger";
+    $errMSG = "Todos os campos são obrigatórios";
     }
     // Gerar uma ID para o cliente
     function id($qtd){
@@ -138,6 +139,7 @@
     
     
 </head>
+
 <body>    
     
     <div id="wrapper" class="sidebar_off">
@@ -279,10 +281,10 @@
                     <h3 class="modal-title" id="myModalLabel">Registrar novo cliente</h3>
                 </div>
                 <div class="modal-body">
-                    <form id="app" @submit="checkForm" method="post" class="login__form"  action="clientes.php" autocomplete="off">
+                    <form  method="post" class="login__form"  action="clientes.php" autocomplete="off">
 				                <div class="col-md-4">NOME DO CLIENTE:</div>
                                 <div class="col-md-8">
-                                  <input type="text" class="form-control" name="name" value=""> 
+                                  <input type="text" class="form-control" name="name"  value=""> 
                                 </div>
                                 <div class="col-md-4">TELEFONE 1:</div>
                                 <div class="col-md-8">
@@ -344,9 +346,7 @@
                           
                     <div class="col-md-12"><hr></div>
                     <button class="btn btn-success" name="btn-cadastrar" type="submit" >CADASTRAR CLIENTE</button>
-                    <div class="side fr"><p v-if="errors.length">
-                                        <b><font color="red">Todos os campos são obrigatórios.</font></b>
-                                    </p></div>
+                    
                     </form>
                 </div>
                </div>
@@ -355,38 +355,6 @@
     </div> 
     </div>
     
-                                <script>
-                                    const app = new Vue({
-                                      el: '#app',
-                                      data: {
-                                        errors: [],
-                                        name: null,
-                                        contato_1: null,
-                                        estado: null,
-                                        cidade: null,
-                                        endereco: null,
-                                        n_casa: null,
-                                        bairro: null,
-                                      },
-                                      methods:{
-                                        checkForm: function (e) {
-                                          if (this.name && this.senha) {
-                                            return true;
-                                          }
-
-                                          this.errors = [];
-
-                                          if (!this.name) {
-                                            this.errors.push('O seu login é obrigatório.');
-                                          }
-                                          if (!this.senha) {
-                                            this.errors.push('A sua senha é obrigatória.');
-                                          }
-
-                                          e.preventDefault();
-                                        }
-                                      }
-                                    })
-                                </script>
+                             
 </body>
 </html>
