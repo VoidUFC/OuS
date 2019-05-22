@@ -106,7 +106,6 @@ table.ass, th.ass, td.ass {
     <div class="row">
         <div class="col-md-12">
             <br>
-            <br>
   <table style="width:100%">
   <td>
       <img src="img/logomarca.jpg" width="140">
@@ -172,9 +171,9 @@ table.ass, th.ass, td.ass {
     <td><b>Data de entrada:</b><br><?php echo $os_data_entrada; ?></td>
   </tr>
 </table>
+<br>
 
-
-               
+            <a href="index.php"class="btn btn-default" type="button">PÁGINA INICIAL</a>
           
                            
                                 
@@ -185,104 +184,7 @@ table.ass, th.ass, td.ass {
 </div>
 </div>
         
-        <!-- Bootrstrap default dialog -->    
-    <div class="modal fade" id="ver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="col-md-12">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title" id="myModalLabel">OS N° 12</h3>
-                </div>
-                <div class="modal-body">
-                                    <div class="content invoice">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <h4>Cliente</h4>
-                                                <address>
-                                                    <strong>JOAO WESLEY SILVA MACEDO</strong><br>
-                                                </address>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <h4>Aparelho</h4>
-                                                <address>
-                                                    <strong>Samsung J5 pro, Dourado.</strong><br>
-                                                    
-                                                 
-                                                </address>                                
-                                            </div>
-                                            <div class="col-md-3"></div>
-                                            <div class="col-md-3">
-                                                <h4>N° OS: 124</h4>
-                                                <p><strong>Entrada:</strong> 11/03/2019 ás 17:02</p>
-                                                <p><strong>Recebido por:</strong> stefanne</p>
-                                                <div class="highlight">
-                                                    <strong>Amount Due:</strong> $2,351.50 <em>USD</em>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <h4>Description</h4>
-                                        <p>Website development</p>
-
-                                        <table cellpadding="0" cellspacing="0" width="100%" class="list">
-                                            <thead>
-                                                <tr>
-                                                    <th width="70%">Description</th>
-                                                    <th width="10%">Price</th>
-                                                    <th width="10%">Quantity</th>
-                                                    <th width="10%">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Web Design</td>
-                                                    <td>$800</td>
-                                                    <td>1</td>
-                                                    <td>$800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Programming</td>
-                                                    <td>$1,151.50</td>
-                                                    <td>1</td>
-                                                    <td>$1,151.50</td>
-                                                </tr>                                
-                                                <tr>
-                                                    <td>Logo Design</td>
-                                                    <td>$400</td>
-                                                    <td>1</td>
-                                                    <td>$400</td>
-                                                </tr>                                            
-                                            </tbody>
-                                        </table>                                                                                
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <h4>Payment method: <span class="text-danger">International Transfer (SWIFT)</span></h4>
-                                                <p><strong>Country:</strong> Ukraine</p>
-                                                <p><strong>Holder's Name:</strong> Dmitry Ivaniuk</p>
-                                                <p><strong>Number/IBAN:</strong> UA85 3996 2200 0000 0260 0123 3566 1</p>
-                                                <p><strong>SWIFT Code:</strong> 1234567891</p>
-                                                <p><strong>Bank Name in Full:</strong> Bank of Ukraine</p>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="total">
-                                                    <p><strong><span>Subtotal:</span> $2,351.50 <em>USD</em></strong></p>
-                                                    <div class="highlight">
-                                                        <strong><span>Total:</span> $2,351.50 <em>USD</em></strong>
-                                                    </div>
-                                                </div>
-                                            </div>                                            
-                                        </div>                                                                                
-                                        
-                                    </div>
-                                
-                                
-                                                 
-                </div>
-               </div>
-            </div>
-        </div>
-    </div>
+  
     
         
         
