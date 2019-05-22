@@ -1,41 +1,3 @@
-<?php
-	ob_start();
-	session_start();
-	require_once 'conect/dbconnect.php';
-	require_once 'conect/db.php';
-	// Verificar se existe alguma sessão ativa, se não tiver vai redirecionar para a página de login
-	if( !isset($_SESSION['user']) ) {
-		header("Location: login.php");
-		exit;
-		
-	}
-	// Fazer LogOut do sistema / Destruir sessão
-     if (isset($_GET['logout'])) {
-		unset($_SESSION['user']);
-		session_unset();
-		session_destroy();
-		header("Location: index.php");
-		exit;
-	}
-	date_default_timezone_set('America/Sao_Paulo');
-	$res=mysql_query("SELECT * FROM ous_funcionarios WHERE cod=".$_SESSION['user']);
-	$userRow=mysql_fetch_array($res);
-	$KEY = true;
-	require_once('conect/setting.php');
-    // Obter dados funcionario da tabela SQL
-
-    
-    $user_id = $userRow['id_funcionario'];
-    $user_n  = $userRow['nome'];
-    $user_sb = $userRow['sobrenome'];
-    $user_dt = date('d/m/y').' as '. date('H:i');
-    $user_c  = $userRow['cargo'];
-    
-    	if ($user_c =='Administrador'){}
-	else{
-	     MessageRedir('<center> Você não tem permissão para acessar essa página! <br> Redirecionando para a página inicial...', 5, 'index.php');    
-    }
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -84,8 +46,8 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="index.php" class="btn btn-primary btn-xs">
-                            <span class="i-forward"> PÁGINA INICIAL </span>
+                        <a href="index.php" class="btn btn-primary btn-sm">
+                            <span class="i-forward"> VOLTAR </span>
                         </a>
                                                
                     </div>                
@@ -110,6 +72,9 @@
                             </li>
                             <li>
                                 <a href="c_funcionario.php">Cadastrar Funcionário</a>
+                            </li>
+                            <li>
+                                <a href="g_funcionario.php">Gerenciar Funcionários</a>
                             </li>
                          
                         </ul>
