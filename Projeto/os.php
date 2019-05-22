@@ -164,7 +164,7 @@
     <script type='text/javascript' src='js/plugins.js'></script>    
     <script type='text/javascript' src='js/actions.js'></script>
     <script type='text/javascript' src='js/charts.js'></script>    
-    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js"></script>
     
     
 </head>
@@ -179,7 +179,7 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="index.php" class="btn btn-primary btn-xs">
+                        <a href="index.php" class="btn btn-primary btn-sm">
                             <i class="glyphicon glyphicon-home"></i> PÁGINA INICIAL 
                         </a>
                     </div>                
@@ -208,8 +208,7 @@
                     
  <div class="container">
     <div class="row">
-      <div class="col-md-12">
-          
+      <div class="col-md-12"> 
           <?php
           if ( isset($errMSG) ){  ?>
               <div class="alert <?php echo ($errTyp=="alert-success") ? "alert-success" : $errTyp; ?>">
@@ -229,7 +228,7 @@
             }else if ($PagActive=='2'){
                  ?>
           <div class="block">  
-             <form method="post"   action="?novo" autocomplete="off"> 
+             <form id="app" @submit="checkForm" method="post"   action="?novo" autocomplete="off"> 
                                     
                                     <div class="head">
                                         <h2>ABRIR ORDEM DE SERVIÇO </h2>
@@ -412,17 +411,64 @@
                                         </div>                     
                                     </div>
                                     <div class="footer">
+                                        <div class="side fl">
+            <p v-if="errors.length">
+              <b><font color="red">Todos os campos são obrigatórios.</font></b>
+            </p>
+          </div>
                                         <div class="side fr">
                                             <button class="btn btn-primary" name="btn-cadastrar">ABRIR ORDEM DE SERVIÇO</button>
                                         </div>
                                     </div> 
                                     </form>
                                 </div>
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js"></script>
+                                <script>
+                                    const app = new Vue({
+                                      el: '#app',
+                                      data: {
+                                        errors: [],
+                                        os_nome_do_cliente: null,
+                                        os_contato_1_do_cliente: null,
+                                        os_estado_do_cliente: null,
+                                        os_cidade_do_cliente: null,
+                                        os_endereco_do_cliente: null,
+                                        os_ncasa_do_cliente: null,
+                                        os_bairro_do_cliente: null,
+                                        os_aparelho: null,
+                                        os_marca: null,
+                                        os_cor_do_aparelho: null,
+                                        os_modelo: null,
+                                        os_status: null,
+                                        os_defeito: null,
+                                        os_servico: null,
+                                        os_valor: null,
+                                      },
+                                      methods:{
+                                        checkForm: function (e) {
+                                          if (this.name && this.senha) {
+                                            return true;
+                                          }
+
+                                          this.errors = [];
+
+                                          if (!this.name) {
+                                            this.errors.push('O seu login é obrigatório.');
+                                          }
+                                          if (!this.senha) {
+                                            this.errors.push('A sua senha é obrigatória.');
+                                          }
+
+                                          e.preventDefault();
+                                        }
+                                      }
+                                    })
+                                </script>
                  <?php
           }else if ($PagActive=='1'){
                  ?>
                  <div class="block">  
-             <form method="post"   action="?id=<?php echo $os_id?>" autocomplete="off"> 
+             <form id="app" @submit="checkForm" method="post"   action="?id=<?php echo $os_id?>" autocomplete="off"> 
                                     
                                     <div class="head">
                                         <h2>ORDEM DE SERVIÇO</h2>
@@ -605,12 +651,18 @@
                                         </div>                     
                                     </div>
                                     <div class="footer">
+                                        <div class="side fl">
+            <p v-if="errors.length">
+              <b><font color="red">Todos os campos são obrigatórios.</font></b>
+            </p>
+          </div>
                                         <div class="side fr">
                                             <button class="btn btn-primary" name="btn-cadastrar">ABRIR ORDEM DE SERVIÇO</button>
                                         </div>
                                     </div> 
                                     </form>
                                 </div>
+          
              <?php
           }else{
               echo'Ocorreu um erro ao solicitar a página.';
@@ -625,10 +677,11 @@
 </div>
 </div>
         
-  
+      
       
 
         
     </div>
 </body>
+    
 </html>
