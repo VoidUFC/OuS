@@ -30,8 +30,6 @@
     $user_sb = $userRow['sobrenome'];
     $user_dt = date('d/m/y').' as '. date('H:i');
     $user_c  = $userRow['cargo'];
-    
-
 ?>
 
 <!DOCTYPE html>
