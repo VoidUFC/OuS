@@ -211,10 +211,9 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="index.php" class="btn btn-primary btn-sm">
-                            <span class="i-forward"> VOLTAR </span>
-                        </a>
-                                               
+                        <a href="index.php" class="btn btn-primary btn-xs">
+                            <span class="i-forward"></span>SAIR DO PAINEL
+                        </a>                
                     </div>                
                 </div>
                 
@@ -237,9 +236,6 @@
                             </li>
                             <li class="active">
                                 <a href="c_funcionario.php">Cadastrar Funcionário</a>
-                            </li>
-                            <li class="">
-                                <a href="g_funcionario.php">Gerenciar Funcionários</a>
                             </li>
                       
                         </ul>
@@ -278,9 +274,6 @@
                                     
                             <div class="col-md-10">
                                <div class="block">
-                                    <div class="head"> 
-                                    <h5><center><font color="#5378a0">CADASTRO DE FUNCIONÁRIO NO SISTEMA</font></center></h5>
-                                    </div>
                                     <div class="content np">
                                         
                                         <div class="controls-row">
