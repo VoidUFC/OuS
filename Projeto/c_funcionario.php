@@ -211,8 +211,8 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="index.php" class="btn btn-primary btn-sm">
-                            <span class="i-forward"> VOLTAR </span>
+                        <a href="index.php" class="btn btn-primary btn-xs">
+                            <span class="i-forward"> PÁGINA INICIAL </span>
                         </a>
                                                
                     </div>                
@@ -237,9 +237,6 @@
                             </li>
                             <li class="active">
                                 <a href="c_funcionario.php">Cadastrar Funcionário</a>
-                            </li>
-                            <li class="">
-                                <a href="g_funcionario.php">Gerenciar Funcionários</a>
                             </li>
                       
                         </ul>
