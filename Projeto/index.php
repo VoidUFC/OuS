@@ -123,8 +123,15 @@
 							<a href="#AbrirOS" role="button" data-toggle="modal" class="btn btn-default btn-sm"><font color="#607387"><span class="i-plus-4"></span> ABRIR O.S</font></a>
 				            
                             <a href="clientes.php" class="btn btn-default btn-sm"><font color="#607387"><span class="i-user"></span> CLIENTES</font></a>    
+                            <?php 
+                            if ($user_c =='Administrador'){
+                                ?>
                             |
-                            <a href="admin.php" class="btn btn-default btn-sm"><font color="#607387"><span class="i-cog"></span> PAINEL DE CONTROLE</font></a>     
+                            <a href="admin.php" class="btn btn-default btn-sm"><font color="#607387"><span class="i-cog"></span> PAINEL DE CONTROLE</font></a>
+                                <?php
+                            }
+                            ?>
+                                 
                                         </div>                        
                     </div>                                                                    
                     
