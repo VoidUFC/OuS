@@ -179,7 +179,7 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="index.php" class="btn btn-primary btn-sm">
+                        <a href="index.php" class="btn btn-primary btn-xs">
                             <i class="glyphicon glyphicon-home"></i> PÁGINA INICIAL 
                         </a>
                     </div>                
