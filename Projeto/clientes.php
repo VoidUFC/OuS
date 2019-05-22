@@ -148,8 +148,8 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="login.php" class="btn btn-primary btn-sm">
-                            <span class="i-user"> SAIR </span>
+                        <a href="login.php" class="btn btn-primary btn-xs">
+                            <span class="i-user"> PÁGINA INICIAL </span>
                         </a>
                                                
                     </div>                
