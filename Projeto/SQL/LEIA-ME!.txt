@@ -1,0 +1,1 @@
+Essas são as tabelas do banco de dados SQL. Podem ser importadas para o phpMyAdmin diretamente do jeito que estão.
