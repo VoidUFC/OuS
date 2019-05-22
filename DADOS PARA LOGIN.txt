@@ -1,0 +1,24 @@
+O servidor que usamos para rodar o projeto foi o XAMPP 5.6.
+Portanto é possível que em outra versão possa não reconhecer todos os códigos/funções.
+
+Download XAMPP 5.6(Windows): 
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.40/
+
+Download XAMPP 5.6(Linux): 
+https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/5.6.40/
+
+Ou então pode acessar o projeto online (Em uma hospedagem WEB):
+http://e-volutec.com/
+
+DADOS PARA LOGIN:
+
+[ Administrador ]
+Login: ous_6538 
+Senha: : 123456
+
+[ Funcionário ]
+Login: ous_5561 
+Senha: : 123456
+
+Diferença entre cargos:
+Apenas as contas com cargo de ADMINISTRADOR podem cadastrar novos funcionários no sistema.
