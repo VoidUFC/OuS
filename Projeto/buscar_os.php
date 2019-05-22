@@ -142,8 +142,7 @@
                              if(utf8_encode($row_list['os_status']) == 'Orçamento') {echo('<span  class="label label-default">Orçamento</span>');}
                                             ?></td> 
                                                     <td><center>
-                                                       <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-primary btn-xs" type="button"><i class="i-printer"></i> IMPRIMIR </a>
-                                                        <a href="os.php?id=<?php echo $row_list['os_numero'];?>" class="btn btn-warning btn-xs" type="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                                       <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-primary btn-xs" type="button"><i class="i-printer"></i> IMPRIMIR OS </a>
                                                    </center></td>
                                                 </tr> 
                                               <?php } ?> 
