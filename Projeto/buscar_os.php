@@ -111,6 +111,19 @@
  <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <?php
+            if (isset($_GET['os']) || isset($_GET['status'])) {
+	$_os_numero	 =	addslashes(@$_GET['os']);
+    $_os_status  =	addslashes(@$_GET['status']);
+    
+    	$GLOBALS['DB']->fetch("SELECT * FROM ous_os WHERE os_numero = ?", $_os_numero);
+        $GLOBALS['DB']->execute("UPDATE ous_os SET os_status = ? WHERE os_numero = ?", array($_os_status, $_os_numero));   
+     MessageRedir('<hr><center>Status alterado para: <b>'.$_os_status.'</b><br>Carregando...</center>', 5, 'buscar_os.php');
+	}
+            ?>
+            
+            
+            
             <div class="block">
                                     <div class="content np table-sorting">
                                         <table cellpadding="0" cellspacing="0" width="100%" class="sortc">
@@ -141,25 +154,25 @@
                              if(utf8_encode($row_list['os_status']) == 'Aguardando'){echo('<span  class="label label-warning">Aguardando</span>');}
                              if(utf8_encode($row_list['os_status']) == 'Orçamento') {echo('<span  class="label label-default">Orçamento</span>');}
                                             ?></center></td> 
-                                                    <td><center>
-                                                       <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-default btn-xs" type="button"><i class="i-printer"></i> </a>
-                                                        <div class="btn-group">
-                                                    <button class="btn btn-info btn-xs">STATUS</button>
-                                                    <button class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                                                      <ul class="dropdown-menu">
-                                                        <li><a href="#">Aberta</a></li>
-                                                        <li><a href="#">Aguardando</a></li>
-                                                        <li><a href="#">Orçamento</a></li> 
-                                                        <li><a href="#">Fechada</a></li> 
-                                                        </ul>                                                    
-                                                        </div>
-                                                   </center></td>
-                                                </tr> 
-                                              <?php } ?> 
-                                            </tbody>
-                                        </table>   
-                                    </div>
-                                </div>
+                             <td><center>
+                                <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-default btn-xs" type="button"><i class="i-printer"></i> </a>
+                             <div class="btn-group">
+                       <button class="btn btn-info btn-xs">STATUS</button>
+                  <button class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+              <li><a href="?os=<?php echo $row_list['os_numero'];?>&status=Aberta">Aberta</a></li>
+                  <li><a href="?os=<?php echo $row_list['os_numero'];?>&status=Aguardando">Aguardando</a></li>
+                  <li><a href="?os=<?php echo $row_list['os_numero'];?>&status=Concluida">Concluida</a></li> 
+                  <li><a href="?os=<?php echo $row_list['os_numero'];?>&status=Fechada">Fechada</a></li> 
+                  </ul>                                                    
+                  </div>
+                     </center></td>
+                        </tr> 
+                  <?php } ?> 
+               </tbody>
+            </table>   
+            </div>
+       </div>
          </div>
 	 </div>      
   </div>
@@ -167,7 +180,7 @@
 </div>
 </div>
         
-  
+   
       
 
         
