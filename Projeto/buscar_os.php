@@ -117,7 +117,7 @@
                                             <thead>
                                                 <tr>
                                                     <th width="10%"><center>OS</center></th>
-                                                    <th width="35%"><center>Cliente</center></th>
+                                                    <th width="30%"><center>Cliente</center></th>
                                                     <th width="10" ><center>Aparelho</center></th>
                                                     <th width="15%"><center>Status</center></th>
                                                     <th width="15%"><center>Opções</center></th>
@@ -134,16 +134,25 @@
                                                     <td><?php echo $row_list['os_numero'];?></td>
                                                     <td><?php echo $row_list['os_nome_do_cliente'];?></td>
                                                     <td><?php echo $row_list['os_aparelho'];?></td>
-                                                    <td><?php 
+                                                    <td><center><?php 
                              if( utf8_encode($row_list['os_status']) == 'Aberta')    {echo('<span  class="label label-info">Aberta</span>');}
                              if(utf8_encode($row_list['os_status']) == 'Fechada')   {echo('<span  class="label label-danger">Fechada</span>');}
                              if(utf8_encode($row_list['os_status']) == 'Concluida') {echo('<span  class="label label-success">Concluida</span>');}
                              if(utf8_encode($row_list['os_status']) == 'Aguardando'){echo('<span  class="label label-warning">Aguardando</span>');}
                              if(utf8_encode($row_list['os_status']) == 'Orçamento') {echo('<span  class="label label-default">Orçamento</span>');}
-                                            ?></td> 
+                                            ?></center></td> 
                                                     <td><center>
-                                                       <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-primary btn-xs" type="button"><i class="i-printer"></i> IMPRIMIR </a>
-                                                        <a href="os.php?id=<?php echo $row_list['os_numero'];?>" class="btn btn-warning btn-xs" type="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                                       <a target="_blank" href="imprimir.php?os=<?php echo $row_list['os_numero'];?>" class="btn btn-default btn-xs" type="button"><i class="i-printer"></i> </a>
+                                                        <div class="btn-group">
+                                                    <button class="btn btn-info btn-xs">STATUS</button>
+                                                    <button class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                                      <ul class="dropdown-menu">
+                                                        <li><a href="#">Aberta</a></li>
+                                                        <li><a href="#">Aguardando</a></li>
+                                                        <li><a href="#">Orçamento</a></li> 
+                                                        <li><a href="#">Fechada</a></li> 
+                                                        </ul>                                                    
+                                                        </div>
                                                    </center></td>
                                                 </tr> 
                                               <?php } ?> 
