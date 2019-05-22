@@ -134,7 +134,7 @@
     <script type='text/javascript' src='js/plugins.js'></script>    
     <script type='text/javascript' src='js/actions.js'></script>
     <script type='text/javascript' src='js/charts.js'></script>    
-    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js"></script>
     
     
 </head>
@@ -148,8 +148,8 @@
 			    <span class="logo"></span>
                 <div class="buttons">
                     <div class="item">
-                        <a href="login.php" class="btn btn-primary btn-xs">
-                            <span class="i-user"> PÁGINA INICIAL </span>
+                        <a href="login.php" class="btn btn-primary btn-sm">
+                            <span class="i-user"> SAIR </span>
                         </a>
                                                
                     </div>                
@@ -207,7 +207,7 @@
                                 </div>
                              <?php }?>
 							    
-                                    <form method="post" class="login__form"  action="clientes.php" autocomplete="off"> 
+                                  
                                     <?php if ( isset($errMSG) ) {  ?>
                                     <div class="alert <?php echo ($errTyp=="alert-success") ? "alert-success" : $errTyp; ?>">
                                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -279,10 +279,10 @@
                     <h3 class="modal-title" id="myModalLabel">Registrar novo cliente</h3>
                 </div>
                 <div class="modal-body">
+                    <form id="app" @submit="checkForm" method="post" class="login__form"  action="clientes.php" autocomplete="off">
 				                <div class="col-md-4">NOME DO CLIENTE:</div>
                                 <div class="col-md-8">
-                                  <input type="text" class="form-control" name="name" value="">
-                                  
+                                  <input type="text" class="form-control" name="name" value=""> 
                                 </div>
                                 <div class="col-md-4">TELEFONE 1:</div>
                                 <div class="col-md-8">
@@ -343,12 +343,50 @@
                                 </div>          
                           
                     <div class="col-md-12"><hr></div>
-                    <button class="btn btn-success" name="btn-cadastrar" type="submit" >CADASTRAR CLIENTE</button></form>
+                    <button class="btn btn-success" name="btn-cadastrar" type="submit" >CADASTRAR CLIENTE</button>
+                    <div class="side fr"><p v-if="errors.length">
+                                        <b><font color="red">Todos os campos são obrigatórios.</font></b>
+                                    </p></div>
+                    </form>
                 </div>
                </div>
             </div>
         </div>
     </div> 
     </div>
+    
+                                <script>
+                                    const app = new Vue({
+                                      el: '#app',
+                                      data: {
+                                        errors: [],
+                                        name: null,
+                                        contato_1: null,
+                                        estado: null,
+                                        cidade: null,
+                                        endereco: null,
+                                        n_casa: null,
+                                        bairro: null,
+                                      },
+                                      methods:{
+                                        checkForm: function (e) {
+                                          if (this.name && this.senha) {
+                                            return true;
+                                          }
+
+                                          this.errors = [];
+
+                                          if (!this.name) {
+                                            this.errors.push('O seu login é obrigatório.');
+                                          }
+                                          if (!this.senha) {
+                                            this.errors.push('A sua senha é obrigatória.');
+                                          }
+
+                                          e.preventDefault();
+                                        }
+                                      }
+                                    })
+                                </script>
 </body>
 </html>
