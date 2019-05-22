@@ -87,8 +87,7 @@
                     <div class="item">
                         <a href="index.php" class="btn btn-primary btn-xs">
                             <span class="i-forward"></span>SAIR DO PAINEL
-                        </a>
-                                               
+                        </a>                  
                     </div>                
                 </div>
                 
