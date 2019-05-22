@@ -71,6 +71,14 @@
 	$os_servico              = addslashes($_POST['os_servico']); 
 	$os_valor                = addslashes($_POST['os_valor']); 
     $os_id_cliente           = $os_id;
+        
+     // Validar campos
+    if (empty($os_nome_do_cliente) || (empty($os_contato_1_do_cliente)) || (empty($os_estado_do_cliente)) || (empty($os_cidade_do_cliente)) || (empty($os_endereco_do_cliente)) || (empty($os_ncasa_do_cliente)) || (empty($os_bairro_do_cliente)) || (empty($os_aparelho)) || (empty($os_marca)) || (empty($os_cor_do_aparelho)) || (empty($os_modelo)) || (empty($os_status)) || (empty($os_defeito)) || (empty($os_servico)) || (empty($os_valor))  ) {
+    $error = true;
+    $errTyp = "alert-danger";
+    $errMSG = "Todos os campos são obrigatórios";
+    }
+        
     // Gerar uma ID para o cliente
     function id($qtd){
        $Caracteres = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYWZ';
@@ -95,7 +103,7 @@
        $os_id_cliente = $clie_id;
        $query = "INSERT INTO ous_os (os_numero,os_id_cliente,os_nome_do_cliente,os_contato_1_do_cliente,os_contato_2_do_cliente,os_cidade_do_cliente,os_aparelho,os_marca,os_cor_do_aparelho,os_modelo,os_status,os_defeito,os_itens,os_servico,os_valor,os_data_entrada) VALUES ('$os_numero','$os_id_cliente','$os_nome_do_cliente','$os_contato_1_do_cliente','$os_contato_2_do_cliente','$os_cidade_do_cliente','$os_aparelho','$os_marca','$os_cor_do_aparelho','$os_modelo','$os_status','$os_defeito','$os_itens','$os_servico','$os_valor','$data_hora')";
        $ress = mysql_query($query);   
-     // Mensagens de erro e sucesso
+     
     if ($ress) {
     $PagActive='3';
     $errTyp = "alert-success";
@@ -163,8 +171,7 @@
     
     <script type='text/javascript' src='js/plugins.js'></script>    
     <script type='text/javascript' src='js/actions.js'></script>
-    <script type='text/javascript' src='js/charts.js'></script>    
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js"></script>
+    <script type='text/javascript' src='js/charts.js'></script>     
     
     
 </head>
@@ -217,7 +224,7 @@
               </div>
               <?php
           }
-          // GERAR A ORDEM DE SERVIÇO
+        
           if ($PagActive=='3'){
              if($gerar_os_1=='true'){
                  MessageRedir('', 4, 'imprimir.php?os='.$os_numero); 
@@ -228,7 +235,7 @@
             }else if ($PagActive=='2'){
                  ?>
           <div class="block">  
-             <form id="app" @submit="checkForm" method="post"   action="?novo" autocomplete="off"> 
+             <form  method="post"  action="?novo" autocomplete="off"> 
                                     
                                     <div class="head">
                                         <h2>ABRIR ORDEM DE SERVIÇO </h2>
@@ -410,65 +417,19 @@
                                         
                                         </div>                     
                                     </div>
-                                    <div class="footer">
-                                        <div class="side fl">
-            <p v-if="errors.length">
-              <b><font color="red">Todos os campos são obrigatórios.</font></b>
-            </p>
-          </div>
+                                    <div class="footer"> 
                                         <div class="side fr">
                                             <button class="btn btn-primary" name="btn-cadastrar">ABRIR ORDEM DE SERVIÇO</button>
                                         </div>
                                     </div> 
                                     </form>
                                 </div>
-          <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js"></script>
-                                <script>
-                                    const app = new Vue({
-                                      el: '#app',
-                                      data: {
-                                        errors: [],
-                                        os_nome_do_cliente: null,
-                                        os_contato_1_do_cliente: null,
-                                        os_estado_do_cliente: null,
-                                        os_cidade_do_cliente: null,
-                                        os_endereco_do_cliente: null,
-                                        os_ncasa_do_cliente: null,
-                                        os_bairro_do_cliente: null,
-                                        os_aparelho: null,
-                                        os_marca: null,
-                                        os_cor_do_aparelho: null,
-                                        os_modelo: null,
-                                        os_status: null,
-                                        os_defeito: null,
-                                        os_servico: null,
-                                        os_valor: null,
-                                      },
-                                      methods:{
-                                        checkForm: function (e) {
-                                          if (this.name && this.senha) {
-                                            return true;
-                                          }
-
-                                          this.errors = [];
-
-                                          if (!this.name) {
-                                            this.errors.push('O seu login é obrigatório.');
-                                          }
-                                          if (!this.senha) {
-                                            this.errors.push('A sua senha é obrigatória.');
-                                          }
-
-                                          e.preventDefault();
-                                        }
-                                      }
-                                    })
-                                </script>
+                                
                  <?php
           }else if ($PagActive=='1'){
                  ?>
                  <div class="block">  
-             <form id="app" @submit="checkForm" method="post"   action="?id=<?php echo $os_id?>" autocomplete="off"> 
+             <form  method="post"   action="?id=<?php echo $os_id?>" autocomplete="off"> 
                                     
                                     <div class="head">
                                         <h2>ORDEM DE SERVIÇO</h2>
@@ -651,11 +612,6 @@
                                         </div>                     
                                     </div>
                                     <div class="footer">
-                                        <div class="side fl">
-            <p v-if="errors.length">
-              <b><font color="red">Todos os campos são obrigatórios.</font></b>
-            </p>
-          </div>
                                         <div class="side fr">
                                             <button class="btn btn-primary" name="btn-cadastrar">ABRIR ORDEM DE SERVIÇO</button>
                                         </div>
@@ -669,7 +625,7 @@
           }
           ?>
           
-      
+
          </div>
 	 </div>      
   </div>
