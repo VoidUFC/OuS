@@ -80,7 +80,7 @@
                 <div class="buttons">
                     <div class="item">
                         <a href="?logout" class="btn btn-primary btn-xs">
-                            <span class="i-togle"> SAIR </span>
+                            <span class="i-togle"> PÁGINA INICIAL </span>
                         </a>
                                                
                     </div>                
