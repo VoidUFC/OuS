@@ -139,7 +139,6 @@
     
     
 </head>
-
 <body>    
     
     <div id="wrapper" class="sidebar_off">
@@ -151,7 +150,7 @@
                 <div class="buttons">
                     <div class="item">
                         <a href="login.php" class="btn btn-primary btn-xs">
-                            <span class="i-user"> PÁGINA INICIAL </span>
+                            <span class="i-user"></span>PÁGINA INICIAL
                         </a>
                                                
                     </div>                
@@ -202,6 +201,68 @@
                         
                         <div class="row">
 							<div class="col-md-12">
+                            <?php 
+                            if (isset($_GET['detalhes'])){ 
+        $det_cliente_id	 =	addslashes(@$_GET['detalhes']);
+     	$det_cons = $GLOBALS['DB']->fetch("SELECT * FROM ous_clientes WHERE id_cliente = ?", $det_cliente_id); 
+     	
+        $_det_id_cliente                = utf8_encode($det_cons['id_cliente']);
+        $_det_nome       = utf8_encode($det_cons['nome']);
+        $_det_contato_1            = utf8_encode($det_cons['contato_1']);
+        $_det_contato_2     = utf8_encode($det_cons['contato_2']);
+        $_det_estado  = utf8_encode($det_cons['estado']);
+        $_det_cidade  = utf8_encode($det_cons['cidade']);
+        $_det_endereco              = utf8_encode($det_cons['endereco']);
+        $_det_n_casa                 = utf8_encode($det_cons['n_casa']);
+        $_det_bairro                = utf8_encode($det_cons['bairro']);
+                                
+     ?>
+   <br>
+
+                                        <div class="controls-row">
+                                            <div class="col-md-2"><b>Nome do cliente:</b></div>
+                                            <div class="col-md-9">
+                                                <input type="text" name="os_nome_do_cliente" class="form-control" value="<?php echo $_det_nome?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-2"><b>Telefone 1:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_contato_1_do_cliente" class="form-control" value="<?php echo $_det_contato_1?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-1"><b>Telefone 2:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_contato_2_do_cliente" class="form-control" value="<?php echo $_det_contato_2?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div><br>
+                                            <div class="col-md-2"><b>Estado:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_contato_2_do_cliente" class="form-control" value="<?php echo $_det_estado?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-1"><b>Cidade:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_cidade_do_cliente" class="form-control" value="<?php echo $_det_cidade?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            
+                                            <div class="col-md-2"><b>Rua:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_endereco_do_cliente" class="form-control" value="<?php echo $_det_endereco?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-1"><b>N°:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_ncasa_do_cliente" class="form-control" value="<?php echo $_det_n_casa?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            <div class="col-md-2"><b>Bairro:</b></div>
+                                            <div class="col-md-4">
+                                                <input type="text" name="os_bairro_do_cliente" class="form-control" value="<?php echo $_det_bairro?>" style="text-transform:uppercase" readonly="readonly">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="controls-row">
+                                           <a href="clientes.php"class="btn btn-primary" type="button">VOLTAR</a> 
+                                        </div>
+                                                      
+                            
+                            </div></div>                     
+     <?php exit;}?>
+                            
 							 <?php if ($os_pag=='1'){ ?>
                               <div class="alert alert-info">            
                                   Selecione na lista abaixo um cliente e em seguida clique em <b>ABRIR O.S</b> para carregar os dados do cliente.
@@ -248,16 +309,15 @@
                                                     <td><?php echo utf8_encode($row_list['contato_1']);?></td>
                                                     <td><?php echo utf8_encode($row_list['cidade'].'-'.$row_list['estado']);?></td>
                                                     <td><?php echo $row_list['id_cliente'];?></td> 
-                                                    <td>
+                                                    <td><center>
                                                        <?php if ($os_pag=='1'){ ?>
-                                                         <a href="os.php?id=<?php echo $row_list['id_cliente'];?>" class="btn btn-success btn-xs" type="button"><i class="glyphicon glyphicon-plus-sign"></i> ABRIR ORDEM DE SERVIÇO</a>
+                 <a href="os.php?id=<?php echo $row_list['id_cliente'];?>" class="btn btn-success btn-xs" type="button"><i class="glyphicon glyphicon-plus-sign"></i> ABRIR ORDEM DE SERVIÇO</a>
                                                          <?php }else{ ?>
-                                                          <a href="a_funcionario.php" class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-trash"></span> </a>
-                                                          <a href="a_funcionario.php" class="btn btn-warning btn-xs" type="button"><span class="glyphicon glyphicon-pencil"></span> </a>
-                                                          <a href="a_funcionario.php" class="btn btn-primary btn-xs" type="button"><i class="glyphicon glyphicon-eye-open"></i> </a>
+                 <a href="a_funcionario.php" class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-trash"></span> </a>
+                 <a href="?detalhes=<?php echo $row_list['id_cliente']; ?>" class="btn btn-info btn-xs" type="button"> Detalhes</a>
                                                         
                                                           <?php }?>
-                                                      </td>
+                                                      </center></td>
                                                 </tr> 
                                                 <?php } ?> 
                                             </tbody>
