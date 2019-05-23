@@ -171,25 +171,15 @@ table.ass, th.ass, td.ass {
     <td><b>Data de entrada:</b><br><?php echo $os_data_entrada; ?></td>
   </tr>
 </table>
-<br>
-
+<br> 
             <a href="index.php"class="btn btn-default" type="button">PÁGINA INICIAL</a>
-          
-                           
-                                
+                               
     </div>
 	 </div>      
   </div>
 
 </div>
-</div>
-        
-  
-    
-        
-        
-
-        
+</div> 
     </div>
 </body>
 </html>
