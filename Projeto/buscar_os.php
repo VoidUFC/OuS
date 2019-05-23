@@ -78,7 +78,7 @@
                 <div class="buttons">
                     <div class="item">
                         <a href="#" class="btn btn-primary btn-xs">
-                            <span class="i-user"> PÁGINA INICIAL </span>
+                            <span class="i-user"></span>PÁGINA INICIAL
                         </a>
                                               
                     </div>                
@@ -118,7 +118,7 @@
     
     	$GLOBALS['DB']->fetch("SELECT * FROM ous_os WHERE os_numero = ?", $_os_numero);
         $GLOBALS['DB']->execute("UPDATE ous_os SET os_status = ? WHERE os_numero = ?", array($_os_status, $_os_numero));   
-     MessageRedir('<hr><center>Status alterado para: <b>'.$_os_status.'</b><br>Carregando...</center>', 5, 'buscar_os.php');
+     MessageRedir('<hr><center>Status alterado para: <b>'.$_os_status.'</b><br>Carregando...</center>', 4, 'buscar_os.php');
 	}
             ?>
             
