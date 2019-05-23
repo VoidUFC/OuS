@@ -119,9 +119,6 @@
                                     </div>                                
                                 </div>
                                 <div class="footer">
-                                    <div class="side fl">
-                                        <a href="">Recuperar dados</a>
-                                    </div>
                                     <div class="side fr">
                                         <input type="submit"  name="btn-login" value="Login" class="btn btn-primary" />
                                     </div>
