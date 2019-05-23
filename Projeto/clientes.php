@@ -202,6 +202,18 @@
                         <div class="row">
 							<div class="col-md-12">
                             <?php 
+                                
+                               
+            if (isset($_GET['deleta'])) {
+	$del_cliente	 =	addslashes(@$_GET['deleta']);
+    
+    	$GLOBALS['DB']->fetch("SELECT * FROM ous_os WHERE os_numero = ?", $_os_numero);
+        $GLOBALS['DB']->execute("UPDATE ous_os SET os_status = ? WHERE os_numero = ?", array($_os_status, $_os_numero));   
+     MessageRedir('<hr><center>Status alterado para: <b>'.$_os_status.'</b><br>Carregando...</center>', 5, 'buscar_os.php');
+	}
+          
+                                
+                                
                             if (isset($_GET['detalhes'])){ 
         $det_cliente_id	 =	addslashes(@$_GET['detalhes']);
      	$det_cons = $GLOBALS['DB']->fetch("SELECT * FROM ous_clientes WHERE id_cliente = ?", $det_cliente_id); 
@@ -313,7 +325,6 @@
                                                        <?php if ($os_pag=='1'){ ?>
                  <a href="os.php?id=<?php echo $row_list['id_cliente'];?>" class="btn btn-success btn-xs" type="button"><i class="glyphicon glyphicon-plus-sign"></i> ABRIR ORDEM DE SERVIÇO</a>
                                                          <?php }else{ ?>
-                 <a href="a_funcionario.php" class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-trash"></span> </a>
                  <a href="?detalhes=<?php echo $row_list['id_cliente']; ?>" class="btn btn-info btn-xs" type="button"> Detalhes</a>
                                                         
                                                           <?php }?>
