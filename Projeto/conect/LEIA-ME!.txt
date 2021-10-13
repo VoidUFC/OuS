@@ -1,2 +1,0 @@
-Esses são os arquivos de conexão com o banco de dados.
-Devem ser configurados de acordo com o USUÁRIO e a SENHA do servidor.
